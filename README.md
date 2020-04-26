@@ -6,7 +6,7 @@
 ![Javascript](https://img.shields.io/badge/Javascript-yellow)
 [![jQuery](https://img.shields.io/badge/jQuery-blue)](https://jquery.com/)
 
-```
+
 Your project should fulfill the following requirements:
 
 Use a CSS framework other than Bootstrap.
@@ -37,4 +37,3 @@ Have a clean repository that meets quality coding standards (file structure, nam
 Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
 Finally, you must add your project to the portfolio that you created in Module 2.
-```
