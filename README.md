@@ -2,7 +2,6 @@
 
 ![HTML5](https://img.shields.io/badge/HTML5-orange)
 ![CSS](https://img.shields.io/badge/CSS-blue)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-purple)
 ![Javascript](https://img.shields.io/badge/Javascript-yellow)
 [![jQuery](https://img.shields.io/badge/jQuery-blue)](https://jquery.com/)
 
