@@ -12,6 +12,8 @@ Use a CSS framework other than Bootstrap.
 *Some Options:*
 [Pure.css](https://purecss.io/)
 [Materialize](https://materializecss.com/)
+[Bulma](https://bulma.io/)
+[Foundation](https://get.foundation/)
 
 Be deployed to GitHub Pages.
 
