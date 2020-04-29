@@ -20,10 +20,9 @@ Be deployed to GitHub Pages.
 Be interactive (i.e., accept and respond to user input).
 
 Use at least two server-side APIs.
-[Public APIs](https://github.com/jpd61/public-apis)
-[15 Need to know APIs](https://www.creativebloq.com/web-design/apis-developers-need-know-121518469)
-[27 free APIs](https://rapidapi.com/collection/list-of-free-apis)
-[Most popular APIs](https://rapidapi.com/blog/most-popular-api/)
+[Google Books](https://developers.google.com/books)
+[OMDb API](http://www.omdbapi.com/)
+[IMDB rapidAPI](https://rapidapi.com/blog/how-to-use-imdb-api/)
 
 Does not use alerts, confirms, or prompts (use modals).
 
