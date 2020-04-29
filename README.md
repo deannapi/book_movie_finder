@@ -23,6 +23,7 @@ Use at least two server-side APIs.
 [Google Books](https://developers.google.com/books)
 [OMDb API](http://www.omdbapi.com/)
 [IMDB rapidAPI](https://rapidapi.com/blog/how-to-use-imdb-api/)
+[Goodreads API](https://www.goodreads.com/api)
 
 Does not use alerts, confirms, or prompts (use modals).
 
