@@ -1,4 +1,4 @@
-# group-project-1 group 8
+# group-project-1 group 5
 
 ![HTML5](https://img.shields.io/badge/HTML5-orange)
 ![CSS](https://img.shields.io/badge/CSS-blue)
