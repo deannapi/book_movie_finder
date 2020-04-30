@@ -1,23 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<!-- Foundation requirement to include "no-js" as html class -->
+<html class="no-js" lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    <!-- Foundation CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <title>What is our title?</title>
 </head>
+
 <body>
     
+<div id="content">
 
+    <!-- Navigation -->
+    <div data-sticky-container>
+        <div class="top-bar" data-sticky data-options="marginTop:0;" style="width:100%">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text"><i class="fas fa-book-open"></i> <i class="fas fa-video"></i></li>
+            <li><a href="#">One</a></li>
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+          </ul>
+        </div>
+        </div>
+    </div>  
 
+    <!-- Submit Form -->
+    <div class="grid-container fluid">
+        <div class="input-group">
+            <!-- Search Label with Magnifying Glass -->
+            <span class="input-group-label"><i class="fas fa-search"></i></span>
+            <input class="input-group-field" type="text">
+            <div class="input-group-button">
+              <input type="submit" class="button" value="Submit">
+            </div>
+        </div>
+    </div>
+
+    <!-- Container for Search Results etc, will populate with JS -->
+    <div class="grid-container fluid">
+        <!-- append movie and book search results here-->
+        <div id="results"></div>
+    </div>
+
+</div> 
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <!-- moment.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <!-- Foundation JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
         <!-- Custom Script -->
         <script src="./assets/js/script.js"></script>
+        <!-- Foundation recommends adding the following per: https://get.foundation/sites/docs/installation.html -->
+        <script>
+            $(document.foundation());
+        </script>
 </body>
 </html>
