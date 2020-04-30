@@ -13,11 +13,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Document</title>
+    <title>What is our title?</title>
 </head>
 
 <body>
     
+<div id="content">
+
     <!-- Navigation -->
     <div data-sticky-container>
         <div class="top-bar" data-sticky data-options="marginTop:0;" style="width:100%">
@@ -29,7 +31,7 @@
             <li><a href="#">Three</a></li>
           </ul>
         </div>
-    </div>
+        </div>
     </div>  
 
     <!-- Submit Form -->
@@ -41,11 +43,16 @@
             <div class="input-group-button">
               <input type="submit" class="button" value="Submit">
             </div>
-          </div>
-
+        </div>
     </div>
 
+    <!-- Container for Search Results etc, will populate with JS -->
+    <div class="grid-container fluid">
+        <!-- append movie and book search results here-->
+        <div id="results"></div>
+    </div>
 
+</div> 
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <!-- moment.js -->
