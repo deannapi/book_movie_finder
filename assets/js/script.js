@@ -29,12 +29,13 @@ var runGBSearch = (event => {
         return response.json();
     })
     .then((response) => {
+        // for reference - delete console.log when finished
         console.log(response)
         // populates the html div
         $('#menu-title').html(response.items[0].volumeInfo.title);
         $('#image').html(`<a href="#"><img src="${response.items[0].volumeInfo.imageLinks.smallThumbnail}"></a>`);
         $('#title').html(response.items[0].volumeInfo.title);
-        $('#author').html(response.items[0].volumeInfo.authors);
+        $('#author').html(response.items[0].volumeInfo.authors[0]);
         let bookRating = response.items[0].volumeInfo.averageRating;
         $('#book-rating').html(`Book Rating: <span id="bRate"> ${bookRating}</span>`);
         if (bookRating>=0 && bookRating<2){
@@ -44,7 +45,7 @@ var runGBSearch = (event => {
         } else if (bookRating>=4){
             $('#bRate').attr("class", "round success label");
         };
-        $('#google-preview').html(`<a href="${response.items[0].volumeInfo.previewLink}">Preview (Google Books)</a>`);
+        $('#google-preview').html(`  <a href="${response.items[0].volumeInfo.previewLink}"><i class="fas fa-book-reader"></i>     Preview (Google Books)</a>`);
         $('#book-description').html("<h5>Book Description: </h5>" + response.items[0].volumeInfo.description + "<br>");
 
     });
@@ -60,6 +61,7 @@ var runTMDBSearch = (event => {
         return response.json();
     })
     .then((response) => {
+        // for reference - delete console.log when finished
         console.log(response)
         $('#movie-description').html("<h5>Movie Description: </h5>" + response.results[0].overview);
         let movieRating = response.results[0].vote_average;
@@ -84,12 +86,13 @@ var runTasteDive = (event => {
         return response.json();
     })
     .then((response) => {
+        // for reference - delete console.log when finished
         console.log(response)
         // This should embed a youTube video of search result, not working due to non-passive event error
     //     $('#youtube').html(`<div class="responsive-embed panorama">
     //     <iframe width="1024" height="315" src="${response.Similar.Info[0].yUrl}" frameborder="0"></iframe>
     //   </div>`); 
-        $('#wikipedia').html(`<a href="${response.Similar.Info[0].wUrl}">Wikipedia</a>`);
+        $('#wikipedia').html(`  <a href="${response.Similar.Info[0].wUrl}"><i class="fab fa-wikipedia-w"></i>    Wikipedia</a>`);
         //for loop was not populating - will comeback too
             $('#similar').html(`
             

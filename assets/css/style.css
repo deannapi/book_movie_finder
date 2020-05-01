@@ -15,6 +15,7 @@
     font-size: larger;
 }
 
+
 #title {
     text-transform: uppercase;
     font-weight: bold;
@@ -50,7 +51,7 @@ h5 {
 }
 
 /* Fontawesome Icons on Nav Bar */
-.fa-book-open, .fa-video {
+.fa-book-open, .fa-video, .fa-book-reader, .fa-wikipedia-w {
     color: #1779ba;
 }
 
