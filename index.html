@@ -26,9 +26,7 @@
         <div class="top-bar-left">
           <ul class="dropdown menu" data-dropdown-menu>
             <li class="menu-text"><i class="fas fa-book-open"></i> <i class="fas fa-video"></i></li>
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
+            <li><a id="menu-title" href="#"></a></li>
           </ul>
         </div>
         </div>
@@ -39,7 +37,7 @@
         <div class="input-group">
             <!-- Search Label with Magnifying Glass -->
             <span class="input-group-label"><i class="fas fa-search"></i></span>
-            <input id="search-input" class="input-group-field" type="text">
+            <input id="search-input" class="input-group-field" type="text" placeholder="Type a Book Name to Search">
             <div class="input-group-button">
               <input type="submit" class="button" value="Submit">
             </div>
@@ -47,11 +45,29 @@
     </div>
 
     <!-- Container for Search Results etc, will populate with JS -->
-    <div class="grid-container fluid">
+    <div class="grid-container">
         <!-- append movie and book search results here-->
         <div id="results">
-            <div id="books" class ="callout"></div>
-            <div id="movies" class="callout"></div>
+            <div>
+                <div class="grid-x grid-margin-x result-header">
+                    <div class="cell small-3">
+                        <div id="image"></div>
+                    </div>
+                    <div class="cell auto">
+                        <div id="title"></div>
+                        <div id="author"></div>
+                        <div id="google-preview"></div>
+                    </div>
+                </div>
+
+                <div class="grid-x grid-margin-x">
+                    <div id="book-description" class="text-justify"></div>
+                </div>
+
+                <div class="grid-x grid-margin-x">
+                    <div id="movie-description" class="text-justify"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -66,7 +82,7 @@
         <script src="./assets/js/script.js"></script>
         <!-- Foundation recommends adding the following per: https://get.foundation/sites/docs/installation.html -->
         <script>
-            // $(document.foundation());
+            $(document).foundation();
         </script>
 </body>
 </html>
