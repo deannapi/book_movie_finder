@@ -50,23 +50,44 @@
         <div id="results">
             <div>
                 <div class="grid-x grid-margin-x result-header">
+
+                    <!-- The youTube feature is not working, yet! -->
+                    <!-- <div class="grid-x grid-margin-x">
+                        <div id="youtube"></div>
+                    </div> -->
+
+                    <!-- Book Cover -->
                     <div class="cell small-3">
                         <div id="image"></div>
                     </div>
+
+                    <!-- Book/Movie Information to the right of cover -->
                     <div class="cell auto">
                         <div id="title"></div>
                         <div id="author"></div>
+                        <div id="book-rating"></div>
+                        <div id="movie-rating"></div>
                         <div id="google-preview"></div>
+                        <div id="wikipedia"></div>
                     </div>
                 </div>
 
+                <!-- Book Description -->
                 <div class="grid-x grid-margin-x">
                     <div id="book-description" class="text-justify"></div>
                 </div>
 
+                <!-- Movie Description -->
                 <div class="grid-x grid-margin-x">
                     <div id="movie-description" class="text-justify"></div>
                 </div>
+
+                <!-- Similar, "you might also like" section -->
+                <div class="grid-x grid-margin-x">
+                <div id="similar">
+                </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -78,6 +99,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <!-- Foundation JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+        <!-- Modernizr (to fix passive event listeners) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
         <!-- Custom Script -->
         <script src="./assets/js/script.js"></script>
         <!-- Foundation recommends adding the following per: https://get.foundation/sites/docs/installation.html -->
