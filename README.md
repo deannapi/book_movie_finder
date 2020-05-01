@@ -6,12 +6,11 @@
 [![jQuery](https://img.shields.io/badge/jQuery-blue)](https://jquery.com/)
 ![Foundation](https://img.shields.io/badge/-Foundation-orange)
 
-UT Coding Bootcamp Project #1 - Group #5
 
 Developed by:
-[Andrea Ballew](https://github.com/andytheelf)
-[DeAnna Martinez](https://github.com/deannapi) 
-[Joseph DeWoody](https://github.com/jpd61)
+* [Andrea Ballew](https://github.com/andytheelf)
+* [DeAnna Martinez](https://github.com/deannapi) 
+* [Joseph DeWoody](https://github.com/jpd61)
 
 [Deployed Application](https://ut-project-1-group-5.github.io/project-1-group-5/)
 
@@ -25,9 +24,9 @@ Be deployed to GitHub Pages. [Deployed Application](https://ut-project-1-group-5
 Be interactive (i.e., accept and respond to user input).
 
 Use at least two server-side APIs.
-[Google Books](https://developers.google.com/books)
-[IMDB rapidAPI](https://rapidapi.com/blog/how-to-use-imdb-api/)
-[Taste Drive API](https://tastedive.com/read/api)
+* [Google Books API](https://developers.google.com/books)
+* [Movie Database API](https://developers.themoviedb.org/3)
+* [Taste Drive API](https://tastedive.com/read/api)
 
 Does not use alerts, confirms, or prompts (use modals).
 
