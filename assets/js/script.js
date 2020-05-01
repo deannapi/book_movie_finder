@@ -132,6 +132,7 @@ var runTasteDive = (event => {
     })
 })
 
+// Can now press "ENTER" to execute the click event and run search
 $("#search-input").keypress(function(event) { 
     if (event.keyCode === 13) { 
         $(".button").click(); 
