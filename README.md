@@ -7,12 +7,12 @@
 ![Foundation](https://img.shields.io/badge/-Foundation-orange)
 
 
-Developed by:
+##Developed by:##
 * [Andrea Ballew](https://github.com/andytheelf)
 * [DeAnna Martinez](https://github.com/deannapi) 
 * [Joseph DeWoody](https://github.com/jpd61)
 
-[Deployed Application](https://ut-project-1-group-5.github.io/project-1-group-5/)
+**[Deployed Application](https://ut-project-1-group-5.github.io/project-1-group-5/)**
 
 Your project should fulfill the following requirements:
 
