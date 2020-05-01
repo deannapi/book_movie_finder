@@ -1,4 +1,4 @@
-var goodReadsAPI = "BQEOrH4cYetnk78yLa8cQA";
+
 var tmdbAPI = "24015e7692b811d33d1c989cbd42b043";
 
 var searchTerm ="casino";
@@ -34,7 +34,7 @@ var runTMDBSearch = (event => {
         return response.json();
     })
     .then((response) => {
-        console.log(response.results[0].title)
+        console.log("movie: " + response.results[0].title)
         let renderHTML = `
         <div id="movies"></div>`
     
@@ -57,7 +57,7 @@ var runGBSearch = (event => {
         return response.json();
     })
     .then((response) => {
-        console.log(response.items[0].volumeInfo.title)
+        console.log("book: " + response.items[0].volumeInfo.title)
         let renderHTML = `
         <div id="books"></div>`
     
