@@ -26,7 +26,7 @@ Be interactive (i.e., accept and respond to user input).
 Use at least two server-side APIs.
 * [Google Books API](https://developers.google.com/books)
 * [Movie Database API](https://developers.themoviedb.org/3)
-* [Taste Drive API](https://tastedive.com/read/api)
+* [Taste Dive API](https://tastedive.com/read/api)
 
 Does not use alerts, confirms, or prompts (use modals).
 
