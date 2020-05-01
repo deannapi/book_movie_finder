@@ -7,7 +7,7 @@
 ![Foundation](https://img.shields.io/badge/-Foundation-orange)
 
 
-##Developed by:##
+## Developed by: ##
 * [Andrea Ballew](https://github.com/andytheelf)
 * [DeAnna Martinez](https://github.com/deannapi) 
 * [Joseph DeWoody](https://github.com/jpd61)
