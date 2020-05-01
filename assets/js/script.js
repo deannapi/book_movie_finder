@@ -132,8 +132,11 @@ var runTasteDive = (event => {
     })
 })
 
-
-
+$("#search-input").keypress(function(event) { 
+    if (event.keyCode === 13) { 
+        $(".button").click(); 
+    } 
+}); 
 $(".button").on('click', (event) => {
     // This fix is not working for youTube
     // document.addEventListener('touchstart', {passive: true});
