@@ -1,29 +1,33 @@
-# group-project-1 group 5
+# UT Coding Bootcamp: Group Project #1 - Group #5
 
 ![HTML5](https://img.shields.io/badge/HTML5-orange)
 ![CSS](https://img.shields.io/badge/CSS-blue)
 ![Javascript](https://img.shields.io/badge/Javascript-yellow)
 [![jQuery](https://img.shields.io/badge/jQuery-blue)](https://jquery.com/)
+![Foundation](https://img.shields.io/badge/-Foundation-orange)
 
+UT Coding Bootcamp Project #1 - Group #5
+
+Developed by:
+[Andrea Ballew](https://github.com/andytheelf)
+[DeAnna Martinez](https://github.com/deannapi) 
+[Joseph DeWoody](https://github.com/jpd61)
+
+[Deployed Application](https://ut-project-1-group-5.github.io/project-1-group-5/)
 
 Your project should fulfill the following requirements:
 
 Use a CSS framework other than Bootstrap.
-*Some Options:*
-[Pure.css](https://purecss.io/)
-[Materialize](https://materializecss.com/)
-[Bulma](https://bulma.io/)
 [Foundation](https://get.foundation/)
 
-Be deployed to GitHub Pages.
+Be deployed to GitHub Pages. [Deployed Application](https://ut-project-1-group-5.github.io/project-1-group-5/)
 
 Be interactive (i.e., accept and respond to user input).
 
 Use at least two server-side APIs.
 [Google Books](https://developers.google.com/books)
-[OMDb API](http://www.omdbapi.com/)
 [IMDB rapidAPI](https://rapidapi.com/blog/how-to-use-imdb-api/)
-[Goodreads API](https://www.goodreads.com/api)
+[Taste Drive API](https://tastedive.com/read/api)
 
 Does not use alerts, confirms, or prompts (use modals).
 
