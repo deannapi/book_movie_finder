@@ -26,9 +26,9 @@
                 <div class="top-bar-left">
                     <ul class="dropdown menu" data-dropdown-menu>
                         <li class="menu-text"><i class="fas fa-book-open"></i> <i class="fas fa-video"></i></li>
-                        <li>
-                            <a id="menu-title" href="#"></a>
-                        </li>
+                        <li><a href="#">One</a></li>
+                        <li><a href="#">Two</a></li>
+                        <li><a href="#">Three</a></li>
                     </ul>
                 </div>
             </div>
@@ -39,7 +39,7 @@
             <div class="input-group">
                 <!-- Search Label with Magnifying Glass -->
                 <span class="input-group-label"><i class="fas fa-search"></i></span>
-                <input id="search-input" class="input-group-field" type="text" placeholder="Type a Book Name to Search">
+                <input id="search-input" class="input-group-field" type="text">
                 <div class="input-group-button">
                     <input id="btnSearch" type="submit" class="button" value="Submit">
                 </div>
@@ -47,50 +47,11 @@
         </div>
 
         <!-- Container for Search Results etc, will populate with JS -->
-        <div class="grid-container">
+        <div class="grid-container fluid">
             <!-- append movie and book search results here-->
             <div id="results">
-                <div>
-                    <div class="grid-x grid-margin-x result-header">
-
-                        <!-- The youTube feature is not working, yet! -->
-                        <!-- <div class="grid-x grid-margin-x">
-                        <div id="youtube"></div>
-                    </div> -->
-
-                        <!-- Book Cover -->
-                        <div class="cell small-3">
-                            <div id="image"></div>
-                        </div>
-
-                        <!-- Book/Movie Information to the right of cover -->
-                        <div class="cell auto">
-                            <div id="title"></div>
-                            <div id="author"></div>
-                            <div id="book-rating"></div>
-                            <div id="movie-rating"></div>
-                            <div id="google-preview"></div>
-                            <div id="wikipedia"></div>
-                        </div>
-                    </div>
-
-                    <!-- Book Description -->
-                    <div class="grid-x grid-margin-x">
-                        <div id="book-description" class="text-justify"></div>
-                    </div>
-
-                    <!-- Movie Description -->
-                    <div class="grid-x grid-margin-x">
-                        <div id="movie-description" class="text-justify"></div>
-                    </div>
-
-                    <!-- Similar, "you might also like" section -->
-                    <div class="grid-x grid-margin-x">
-                        <div id="similar">
-                        </div>
-                    </div>
-
-                </div>
+                <div id="books" class="callout"></div>
+                <div id="movies" class="callout"></div>
             </div>
         </div>
 
@@ -101,13 +62,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <!-- Foundation JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-    <!-- Modernizr (to fix passive event listeners) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <!-- Custom Script -->
     <script src="./assets/js/script.js"></script>
     <!-- Foundation recommends adding the following per: https://get.foundation/sites/docs/installation.html -->
     <script>
-        $(document).foundation();
+        // $(document.foundation());
     </script>
 </body>
 
