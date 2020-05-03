@@ -183,8 +183,6 @@ $(".button").on('click', (event) => {
 $('#menu-title').on("click", (event) => {
     event.preventDefault();
     let recallBook = $('#recall-book').val();
-    $("#search-input").val() = recallBook;
-    runGBSearch();
-    runTMDBSearch();
-    runTasteDive();
+    $("#search-input").val(recallBook)
+    $(".button").click(); 
 });
