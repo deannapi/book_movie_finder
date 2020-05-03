@@ -1,9 +1,11 @@
 // The Movie Database API Key
 var tmdbAPI = "24015e7692b811d33d1c989cbd42b043";
 // Don't appear to need the API?
-// var tasteDiveAPI = "367428-bootcamp-HTLV36YO";
+var tasteDiveAPI = "367428-bootcamp-HTLV36YO";
 
 var searchTerm ="";
+var currentBook="";
+var lastBook="";
 
 console.log(`
 UT Coding Bootcamp Project #1 - Group #5
@@ -19,6 +21,7 @@ Repository:
 https://github.com/UT-Project-1-Group-5/project-1-group-5
 `);
 
+
 // Google Books Search and append to html
 var runGBSearch = (event => {
     let searchTerm = $("#search-input").val();
@@ -30,9 +33,10 @@ var runGBSearch = (event => {
     })
     .then((response) => {
         // for reference - delete console.log when finished
-        console.log(response)
+        console.log(response);
+        saveBook(response.items[0].volumeInfo.title);
         // populates the html div
-        $('#menu-title').html(response.items[0].volumeInfo.title);
+        // $('#menu-title').html(response.items[0].volumeInfo.title);
         $('#image').html(`<a href="#"><img src="${response.items[0].volumeInfo.imageLinks.smallThumbnail}"></a>`);
         $('#title').html(response.items[0].volumeInfo.title);
         $('#author').html(response.items[0].volumeInfo.authors[0]);
@@ -79,7 +83,7 @@ var runTMDBSearch = (event => {
 // Run Taste Dive API https://tastedive.com/read/api
 var runTasteDive = (event => {
     let searchTerm = $("#search-input").val();
-    let tasteDriveFetch = "https://cors-anywhere.herokuapp.com/" + "https://tastedive.com/api/similar?q=" + searchTerm +"&verbose=1";
+    let tasteDriveFetch = "https://cors-anywhere.herokuapp.com/" + "https://tastedive.com/api/similar?q=" + searchTerm +"&verbose=1" + "&k=" + tasteDiveAPI;
 
     fetch(tasteDriveFetch)
     .then((response) => {
@@ -132,6 +136,34 @@ var runTasteDive = (event => {
     })
 })
 
+// save the searches to storage
+var saveBook = (newBook) => {
+    let bookExists = false;
+    for (let i = 0; i < localStorage.length; i++) {
+        if (localStorage["books" + i] === newBook) {
+        bookExists = true;
+        break;
+        }
+    }
+    if (bookExists === false) {
+        localStorage.setItem('books' + localStorage.length, newBook);
+    }
+}
+
+// render the books to the dropdown menu
+var renderBook = () => {
+    $('#saved-books').empty();
+    let lastBookKey = "books"+(localStorage.length-1);
+    lastBook = localStorage.getItem(lastBookKey);
+    for (let i = 0; i < localStorage.length; i++) {
+        let book = localStorage.getItem("books" + i);
+        let bookEl = `<li id="recall-book"><a>${book}</a></li>`;
+        $('#menu-title').prepend(bookEl);
+        }
+}
+
+renderBook();
+
 // Can now press "ENTER" to execute the click event and run search
 $("#search-input").keypress(function(event) { 
     if (event.keyCode === 13) { 
@@ -142,6 +174,16 @@ $(".button").on('click', (event) => {
     // This fix is not working for youTube
     // document.addEventListener('touchstart', {passive: true});
     event.preventDefault();
+    runGBSearch();
+    runTMDBSearch();
+    runTasteDive();
+});
+
+// to call the saved books in to search
+$('#menu-title').on("click", (event) => {
+    event.preventDefault();
+    let recallBook = $('#recall-book').val();
+    $("#search-input").val() = recallBook;
     runGBSearch();
     runTMDBSearch();
     runTasteDive();
