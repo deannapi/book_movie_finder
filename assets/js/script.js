@@ -4,7 +4,6 @@ var tmdbAPI = "24015e7692b811d33d1c989cbd42b043";
 var tasteDiveAPI = "367428-bootcamp-HTLV36YO";
 
 var searchTerm="";
-var currentBook="";
 var lastBook="";
 
 console.log(`
@@ -24,42 +23,35 @@ https://github.com/UT-Project-1-Group-5/project-1-group-5
 
 // Google Books Search and append to html
 var runGBSearch = (event => {
-    let searchTerm = $("#search-input").val();
+    searchTerm = $("#search-input").val();
     var googleFetch = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
 
     fetch(googleFetch)
-        .then((response) => {
-            return response.json();
-        })
-        .then((response) => {
-            // for reference - delete console.log when finished
-            console.log(response);
-            // populates the html div
-            var newbook;
-            for (i = 0; i < response.items.length; i++) {
-                var book = response.items[i].volumeInfo.title;
-                if (book.includes(searchTerm)) {
-                    newbook = response.items[i];
-                }
-            };
-            console.log("Book: ", newbook);
+    .then((response) => {
+        return response.json();
+    })
+    .then((response) => {
+        // for reference - delete console.log when finished
+        console.log(response);
+        saveBook(response.items[0].volumeInfo.title);
+        // populates the html div
+        // $('#menu-title').html(response.items[0].volumeInfo.title);
+        $('#image').html(`<a href="#"><img src="${response.items[0].volumeInfo.imageLinks.smallThumbnail}"></a>`);
+        $('#title').html(response.items[0].volumeInfo.title);
+        $('#author').html(response.items[0].volumeInfo.authors[0]);
+        let bookRating = response.items[0].volumeInfo.averageRating;
+        $('#book-rating').html(`Book Rating: <span id="bRate"> ${bookRating}</span>`);
+        if (bookRating>=0 && bookRating<2){
+            $('#bRate').attr("class", "round alert label");
+        } else if (bookRating>=2 && bookRating<4){
+            $('#bRate').attr("class", "round warning label");
+        } else if (bookRating>=4){
+            $('#bRate').attr("class", "round success label");
+        };
+        $('#google-preview').html(`  <a href="${response.items[0].volumeInfo.previewLink}"><i class="fas fa-book-reader"></i>     Preview (Google Books)</a>`);
+        $('#book-description').html("<h5>Book Description: </h5>" + response.items[0].volumeInfo.description + "<br>");
 
-            $('#menu-title').html(newbook.volumeInfo.title);
-            $('#image').html(`<a href="#"><img src="${response.items[0].volumeInfo.imageLinks.smallThumbnail}"></a>`);
-            $('#title').html(newbook.volumeInfo.title);
-            $('#author').html(newbook.volumeInfo.authors[0]);
-            let bookRating = newbook.volumeInfo.averageRating;
-            $('#book-rating').html(`Book Rating: <span id="bRate"> ${bookRating}</span>`);
-            if (bookRating >= 0 && bookRating < 2) {
-                $('#bRate').attr("class", "round alert label");
-            } else if (bookRating >= 2 && bookRating < 4) {
-                $('#bRate').attr("class", "round warning label");
-            } else if (bookRating >= 4) {
-                $('#bRate').attr("class", "round success label");
-            };
-            $('#google-preview').html(`  <a href="${newbook.volumeInfo.previewLink}"><i class="fas fa-book-reader"></i>     Preview (Google Books)</a>`);
-            $('#book-description').html("<h5>Book Description: </h5>" + newbook.volumeInfo.description + "<br>");
-        });
+    });
 })
 
 // MOVIE TMDB Search
@@ -170,18 +162,7 @@ var renderBook = () => {
         }
 }
 
-renderBook();
-
-// Can now press "ENTER" to execute the click event and run search
-$("#search-input").keypress(function(event) { 
-    if (event.keyCode === 13) { 
-        $(".button").click(); 
-    } 
-}); 
-$(".button").on('click', (event) => {
-    // This fix is not working for youTube
-    // document.addEventListener('touchstart', {passive: true});
-    event.preventDefault();
+var runApp = (event => {
     runGBSearch();
     runTMDBSearch();
     runTasteDive();
@@ -193,11 +174,24 @@ $(".button").on('click', (event) => {
       });
 });
 
+renderBook();
+
+// Can now press "ENTER" to execute the click event and run search
+$("#search-input").keypress(function(event) { 
+    if (event.keyCode === 13) { 
+        $(".button").click(); 
+    } 
+}); 
+$(".button").on('click', (event) => {
+    // This fix is not working for youTube
+    // document.addEventListener('touchstart', {passive: true});
+    runApp();
+});
+
 // to call the saved books in to search
-$('#searchedBook').on("click", (event) => {
+$('#menu-title').on("click", (event) => {
     event.preventDefault();
     $("#search-input").val(event.target.textContent);
-    searchTerm= $('#search-input').val();
-    $(".button").click();
+    runApp();
     $('#search-input').empty(); 
 });
