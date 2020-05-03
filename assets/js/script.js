@@ -19,23 +19,7 @@ Repository:
 https://github.com/UT-Project-1-Group-5/project-1-group-5
 `);
 
-// const searchInput = document.getElementById("search-input");
-// $("#btnInsert").click(function() {
-//     let searchArray = JSON.parse(localStorage.getItem("searchInput"))
-//     if (!searchArray) {
-//         searchArray = [];
-//     }
-//     searchArray.push(searchInput.value);
-//     localStorage.setItem("searchInput", JSON.stringify(searchArray));
-//     let storedSearch = JSON.parse(localStorage.getItem("searchInput"))
-//     console.log(storedSearch);
-// });
-
-var searchTerm = "";
-//var newSearch = [];
 const searchInput = document.getElementById("search-input");
-// const btnInsert = document.getElementById("btnInsert");
-
 $("#btnSearch").click(function() {
     let searchArray = JSON.parse(localStorage.getItem("search-input"));
     if (!searchArray) {
@@ -48,16 +32,8 @@ $("#btnSearch").click(function() {
 
     let storedSearch = JSON.parse(localStorage.getItem("search-input"))
     console.log(storedSearch);
-
-    $("#storageContainer").empty();
-    $.each(storedSearch, function(index, value) {
-        if (storedSearch >= 8) {
-            $(storedSearch).remove();
-        } else {
-            $("#storageContainer").append(index + ": " + value + '<br>')
-        }
-    })
 });
+
 
 // Google Books Search and append to html
 var runGBSearch = (event => {
