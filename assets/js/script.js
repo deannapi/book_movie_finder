@@ -3,7 +3,7 @@ var tmdbAPI = "24015e7692b811d33d1c989cbd42b043";
 // Don't appear to need the API?
 var tasteDiveAPI = "367428-bootcamp-HTLV36YO";
 
-var searchTerm ="";
+var searchTerm="";
 var currentBook="";
 var lastBook="";
 
@@ -24,7 +24,7 @@ https://github.com/UT-Project-1-Group-5/project-1-group-5
 
 // Google Books Search and append to html
 var runGBSearch = (event => {
-    let searchTerm = $("#search-input").val();
+    searchTerm = $("#search-input").val();
     var googleFetch = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
 
     fetch(googleFetch)
@@ -57,7 +57,7 @@ var runGBSearch = (event => {
 
 // MOVIE TMDB Search
 var runTMDBSearch = (event => {
-    let searchTerm = $("#search-input").val();
+    searchTerm = $("#search-input").val();
     let tmdbFetch = "https://api.themoviedb.org/3/search/movie?api_key=" + tmdbAPI + "&query=" + searchTerm;
 
     fetch(tmdbFetch)
@@ -82,7 +82,7 @@ var runTMDBSearch = (event => {
 
 // Run Taste Dive API https://tastedive.com/read/api
 var runTasteDive = (event => {
-    let searchTerm = $("#search-input").val();
+    searchTerm = $("#search-input").val();
     let tasteDriveFetch = "https://cors-anywhere.herokuapp.com/" + "https://tastedive.com/api/similar?q=" + searchTerm +"&verbose=1" + "&k=" + tasteDiveAPI;
 
     fetch(tasteDriveFetch)
@@ -147,17 +147,18 @@ var saveBook = (newBook) => {
     }
     if (bookExists === false) {
         localStorage.setItem('books' + localStorage.length, newBook);
-    }
+    };
+    renderBook();
 }
 
 // render the books to the dropdown menu
 var renderBook = () => {
-    $('#saved-books').empty();
+    $('#menu-title').empty();
     let lastBookKey = "books"+(localStorage.length-1);
     lastBook = localStorage.getItem(lastBookKey);
     for (let i = 0; i < localStorage.length; i++) {
         let book = localStorage.getItem("books" + i);
-        let bookEl = `<li id="recall-book"><a>${book}</a></li>`;
+        let bookEl = `<li id="recall-book"><a id="searchedBook">${book}</a></li>`;
         $('#menu-title').prepend(bookEl);
         }
 }
@@ -177,12 +178,19 @@ $(".button").on('click', (event) => {
     runGBSearch();
     runTMDBSearch();
     runTasteDive();
+    renderBook();
+    $('#search-input').val(function() {
+        if (this.value.length == 0) {
+          return $(this).attr('placeholder');
+        }
+      });
 });
 
 // to call the saved books in to search
-$('#menu-title').on("click", (event) => {
+$('#recall-book').on("click", (event) => {
     event.preventDefault();
-    let recallBook = $('#recall-book').val();
-    $("#search-input").val(recallBook)
-    $(".button").click(); 
+    $("#search-input").val(event.target.textContent);
+    searchTerm= $('#search-input').val();
+    $(".button").click();
+    $('#search-input').empty(); 
 });
