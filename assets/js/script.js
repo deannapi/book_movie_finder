@@ -24,35 +24,42 @@ https://github.com/UT-Project-1-Group-5/project-1-group-5
 
 // Google Books Search and append to html
 var runGBSearch = (event => {
-    searchTerm = $("#search-input").val();
+    let searchTerm = $("#search-input").val();
     var googleFetch = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
 
     fetch(googleFetch)
-    .then((response) => {
-        return response.json();
-    })
-    .then((response) => {
-        // for reference - delete console.log when finished
-        console.log(response);
-        saveBook(response.items[0].volumeInfo.title);
-        // populates the html div
-        // $('#menu-title').html(response.items[0].volumeInfo.title);
-        $('#image').html(`<a href="#"><img src="${response.items[0].volumeInfo.imageLinks.smallThumbnail}"></a>`);
-        $('#title').html(response.items[0].volumeInfo.title);
-        $('#author').html(response.items[0].volumeInfo.authors[0]);
-        let bookRating = response.items[0].volumeInfo.averageRating;
-        $('#book-rating').html(`Book Rating: <span id="bRate"> ${bookRating}</span>`);
-        if (bookRating>=0 && bookRating<2){
-            $('#bRate').attr("class", "round alert label");
-        } else if (bookRating>=2 && bookRating<4){
-            $('#bRate').attr("class", "round warning label");
-        } else if (bookRating>=4){
-            $('#bRate').attr("class", "round success label");
-        };
-        $('#google-preview').html(`  <a href="${response.items[0].volumeInfo.previewLink}"><i class="fas fa-book-reader"></i>     Preview (Google Books)</a>`);
-        $('#book-description').html("<h5>Book Description: </h5>" + response.items[0].volumeInfo.description + "<br>");
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            // for reference - delete console.log when finished
+            console.log(response);
+            // populates the html div
+            var newbook;
+            for (i = 0; i < response.items.length; i++) {
+                var book = response.items[i].volumeInfo.title;
+                if (book.includes(searchTerm)) {
+                    newbook = response.items[i];
+                }
+            };
+            console.log("Book: ", newbook);
 
-    });
+            $('#menu-title').html(newbook.volumeInfo.title);
+            $('#image').html(`<a href="#"><img src="${response.items[0].volumeInfo.imageLinks.smallThumbnail}"></a>`);
+            $('#title').html(newbook.volumeInfo.title);
+            $('#author').html(newbook.volumeInfo.authors[0]);
+            let bookRating = newbook.volumeInfo.averageRating;
+            $('#book-rating').html(`Book Rating: <span id="bRate"> ${bookRating}</span>`);
+            if (bookRating >= 0 && bookRating < 2) {
+                $('#bRate').attr("class", "round alert label");
+            } else if (bookRating >= 2 && bookRating < 4) {
+                $('#bRate').attr("class", "round warning label");
+            } else if (bookRating >= 4) {
+                $('#bRate').attr("class", "round success label");
+            };
+            $('#google-preview').html(`  <a href="${newbook.volumeInfo.previewLink}"><i class="fas fa-book-reader"></i>     Preview (Google Books)</a>`);
+            $('#book-description').html("<h5>Book Description: </h5>" + newbook.volumeInfo.description + "<br>");
+        });
 })
 
 // MOVIE TMDB Search
@@ -187,7 +194,7 @@ $(".button").on('click', (event) => {
 });
 
 // to call the saved books in to search
-$('#recall-book').on("click", (event) => {
+$('#searchedBook').on("click", (event) => {
     event.preventDefault();
     $("#search-input").val(event.target.textContent);
     searchTerm= $('#search-input').val();
