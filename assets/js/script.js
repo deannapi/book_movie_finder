@@ -40,6 +40,7 @@ var runGBSearch = (event => {
                 var book = response.items[i].volumeInfo.title;
                 if (book.includes(searchTerm)) {
                     newbook = response.items[i];
+                    // is this the right place to save to localstorage
                     saveBook(newbook.volumeInfo.title);
                 }
             }
