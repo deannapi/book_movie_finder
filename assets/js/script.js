@@ -25,7 +25,7 @@ https://github.com/UT-Project-1-Group-5/project-1-group-5
 var runGBSearch = (event => {
     let searchTerm = $("#search-input").val();
     var googleFetch = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
-
+    var newbook;
     fetch(googleFetch)
         .then((response) => {
             return response.json();
@@ -34,16 +34,16 @@ var runGBSearch = (event => {
             // for reference - delete console.log when finished
             console.log(response);
             // populates the html div
-            var newbook;
-            for (i = 0; i < response.items.length; i++) {
+
+            // Loop to ensure book title is correct
+            for (let i = 0; i < response.items.length; i++) {
                 var book = response.items[i].volumeInfo.title;
                 if (book.includes(searchTerm)) {
                     newbook = response.items[i];
+                    saveBook(newbook.volumeInfo.title);
                 }
-            };
+            }
             console.log("Book: ", newbook);
-
-            $('#menu-title').html(newbook.volumeInfo.title);
             $('#image').html(`<a href="#"><img src="${response.items[0].volumeInfo.imageLinks.smallThumbnail}"></a>`);
             $('#title').html(newbook.volumeInfo.title);
             $('#author').html(newbook.volumeInfo.authors[0]);
@@ -193,7 +193,7 @@ $('#menu-title').on("click", (event) => {
 });
 
 // to call from suggestions at bottom - not functional yet
-$('.card-section').on("click", (event) => {
+$('#similar').on("click", (event) => {
     event.preventDefault();
     $("#search-input").val(event.target.textContent);
     runApp();
