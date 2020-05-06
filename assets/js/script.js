@@ -194,7 +194,7 @@ $('#similar').on("click", (event) => {
 });
 
 // Can now press "ENTER" to execute the click event and run search
-$("#search-input").keypress(function(event) { 
+$("#search-input").keypress((event) => { 
     if (event.keyCode === 13) { 
         $(".button").click(); 
     } 
