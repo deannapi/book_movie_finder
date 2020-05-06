@@ -186,7 +186,11 @@ $('#similar').on("click", (event) => {
     event.preventDefault();
     $("#search-input").val(event.target.textContent);
     runApp();
-    $('#search-input').empty(); 
+    $('#search-input').empty();
+    // resets window to the top on new search
+    $(document).ready(function(){
+        $(window).scrollTop(0);
+    });
 });
 
 // Can now press "ENTER" to execute the click event and run search
