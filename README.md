@@ -6,6 +6,7 @@
 [![jQuery](https://img.shields.io/badge/jQuery-blue)](https://jquery.com/)
 ![Foundation](https://img.shields.io/badge/-Foundation-orange)
 
+<img src="./screenshot.PNG"> 
 
 ## Developed by: ##
 * [Andrea Ballew](https://github.com/andytheelf)
@@ -14,32 +15,24 @@
 
 **[Deployed Application](https://ut-project-1-group-5.github.io/project-1-group-5/)**
 
-Your project should fulfill the following requirements:
+For this project we chose [Foundation](https://get.foundation/) as our CSS of choice.
 
-Use a CSS framework other than Bootstrap.
-[Foundation](https://get.foundation/)
-
-Be deployed to GitHub Pages. [Deployed Application](https://ut-project-1-group-5.github.io/project-1-group-5/)
-
-Be interactive (i.e., accept and respond to user input).
-
-Use at least two server-side APIs.
+The application is an interactive search query for book title that returns to the user results pertaining the book (and applicable movie version) from three different server-side APIs:
 * [Google Books API](https://developers.google.com/books)
 * [Movie Database API](https://developers.themoviedb.org/3)
 * [Taste Dive API](https://tastedive.com/read/api)
 
-Does not use alerts, confirms, or prompts (use modals).
+The site employs client side storage to populate saved searches so that the user can easily recall what they have searched for prior.
 
-Use client-side storage to store persistent data.
+The site is responsive and changes based upon the size of the window viewing it.
 
-Be responsive.
+It has a polished UI.
 
-Have a polished UI.
+It has a clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.). Favicons are required to be in root folder per favicon documentation [Favicon Generator](https://realfavicongenerator.net/)
 
-Have a clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
+Has a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
-Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
-
-Finally, you must add your project to the portfolio that you created in Module 2.
-
-Favicons are required to be in root folder per favicon documentation [Favicon Generator](https://realfavicongenerator.net/)
+## The developers portfolio sites are: ##
+* [Joseph DeWoody](https://jpd61.github.io/)
+* [DeAnna Martinez](https://deannapi.github.io/portfolio/)
+* [Andrea Ballew](https://andytheelf.github.io/)
