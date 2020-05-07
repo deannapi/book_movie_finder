@@ -1,4 +1,4 @@
-# UT Coding Bootcamp: Group Project #1 - Group #5
+# Have You Read It?
 
 ![HTML5](https://img.shields.io/badge/HTML5-orange)
 ![CSS](https://img.shields.io/badge/CSS-blue)
