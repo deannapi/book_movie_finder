@@ -174,7 +174,7 @@ var runApp = (event => {
     runTMDBSearch();
     runTasteDive();
     renderBook();
-    $('#search-input').val(()=> {
+    $('#search-input').val(function() {
         if (this.value.length == 0) {
           return $(this).attr('placeholder');
         }
