@@ -1,11 +1,15 @@
 // The Movie Database API Key
 var tmdbAPI = "24015e7692b811d33d1c989cbd42b043";
-// Don't appear to need the API?
+
+// Taste Dive API Key
 var tasteDiveAPI = "367428-bootcamp-HTLV36YO";
+
+// Define Global Variables
 var newbook;
 var searchTerm="";
 var lastBook="";
 
+// Get street cred for our work!
 console.log(`
 UT Coding Bootcamp Project #1 - Group #5
 
@@ -25,7 +29,7 @@ https://github.com/UT-Project-1-Group-5/project-1-group-5
 var runGBSearch = (event => {
     searchTerm = $("#search-input").val();
     var googleFetch = "https://www.googleapis.com/books/v1/volumes?q=" + searchTerm;
-
+    // fetch API
     fetch(googleFetch)
     .then((response) => {
         return response.json();
@@ -34,12 +38,16 @@ var runGBSearch = (event => {
         // for reference - delete console.log when finished
         saveBook(response.items[0].volumeInfo.title);
         // populates the html div
-        // $('#menu-title').html(response.items[0].volumeInfo.title);
+        // Book Cover
         $('#image').html(`<a href="#"><img src="${response.items[0].volumeInfo.imageLinks.smallThumbnail}"></a>`);
+        // Book Title
         $('#title').html(response.items[0].volumeInfo.title);
+        // Book Author
         $('#author').html(response.items[0].volumeInfo.authors[0]);
+        // Book Rating
         let bookRating = response.items[0].volumeInfo.averageRating;
         $('#book-rating').html(`Book Rating: <span id="bRate"> ${bookRating}</span>`);
+        // Color Rating based on score
         if (bookRating>=0 && bookRating<2){
             $('#bRate').attr("class", "round alert label");
         } else if (bookRating>=2 && bookRating<4){
@@ -47,7 +55,9 @@ var runGBSearch = (event => {
         } else if (bookRating>=4){
             $('#bRate').attr("class", "round success label");
         };
+        // Preview in Google Books
         $('#google-preview').html(`  <a href="${response.items[0].volumeInfo.previewLink}"><i class="fas fa-book-reader"></i>     Preview (Google Books)</a>`);
+        // Book description
         $('#book-description').html("<h5>Book Description: </h5>" + response.items[0].volumeInfo.description + "<br>");
 
     });
@@ -63,10 +73,12 @@ var runTMDBSearch = (event => {
         return response.json();
     })
     .then((response) => {
-        // for reference - delete console.log when finished
+        // Movie description
         $('#movie-description').html("<h5>Movie Description: </h5>" + response.results[0].overview);
+        // Movie rating
         let movieRating = response.results[0].vote_average;
         $('#movie-rating').html(`Movie Rating: <span id="mRate"> ${movieRating}</span>`);
+        // Color rating based on scale 
         if (movieRating>=0 && movieRating<5){
             $('#mRate').attr("class", "round alert label");
         } else if (movieRating>=5 && movieRating<7){
@@ -87,12 +99,9 @@ var runTasteDive = (event => {
         return response.json();
     })
     .then((response) => {
-        // This should embed a youTube video of search result, not working due to non-passive event error
-    //     $('#youtube').html(`<div class="responsive-embed panorama">
-    //     <iframe width="1024" height="315" src="${response.Similar.Info[0].yUrl}" frameborder="0"></iframe>
-    //   </div>`); 
+        // Wikipedia link
         $('#wikipedia').html(`  <a href="${response.Similar.Info[0].wUrl}"><i class="fab fa-wikipedia-w"></i>    Wikipedia</a>`);
-        //for loop was not populating - will comeback too
+        // Populate suggested titles
             $('#similar').html(`
             
                 <h5>Similar Titles: </h5>
@@ -143,6 +152,7 @@ var saveBook = (newBook) => {
     if (bookExists === false) {
         localStorage.setItem('books' + localStorage.length, newBook);
     };
+    // Render to update in "real-time"
     renderBook();
 }
 
@@ -164,7 +174,7 @@ var runApp = (event => {
     runTMDBSearch();
     runTasteDive();
     renderBook();
-    $('#search-input').val(function() {
+    $('#search-input').val(()=> {
         if (this.value.length == 0) {
           return $(this).attr('placeholder');
         }
@@ -181,7 +191,7 @@ $('#menu-title').on("click", (event) => {
     $('#search-input').empty(); 
 });
 
-// to call from suggestions at bottom - not functional yet
+// to call from suggestions at bottom into new search
 $('#similar').on("click", (event) => {
     event.preventDefault();
     $("#search-input").val(event.target.textContent);
@@ -200,8 +210,6 @@ $("#search-input").keypress((event) => {
     } 
 }); 
 $(".button").on('click', (event) => {
-    // This fix is not working for youTube
-    // document.addEventListener('touchstart', {passive: true});
     runApp();
 });
 
