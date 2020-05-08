@@ -12,6 +12,13 @@ a {
 #search-input {
     background-color: #024979;
 }
+h1 {
+    color: blanchedalmond;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3em;
+    text-align: center;
+}
 input[type=text] {
     color: blanchedalmond;
     font-weight: bold;
